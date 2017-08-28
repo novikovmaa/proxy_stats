@@ -1,0 +1,27 @@
+<div class="jumbotron" ng-if="hosts.length == 0">
+    <h1 class="display-3">Sorry,</h1>
+    <p class="lead">No clients yet</p>
+</div>
+    <table class="table table-hover" ng-show="hosts.length > 0">
+        <thead class="thead-default">
+        <tr>
+            <th>#</th>
+            <th>Os Name</th>
+            <th>OsVersion</th>
+            <th>Connected at</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="host in hosts">
+            <td scope="$index + 1">{{$index + 1}}</td>
+            <td>{{host.osName}}</td>
+            <td>{{host.osVersion}}</td>
+            <td>{{host.connectTime | date : 'yyyy-MM-dd HH:mm:s' }}</td>
+        </tr>
+        </tbody>
+    </table>
+<div class="row">
+    <div class="col-md-2 float-md-right">
+       <span ng-show="isLoading"><img src="desktop_loading.gif" alt="loading" width="30" height="30"/></span>
+    </div>
+</div>
